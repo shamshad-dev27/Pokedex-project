@@ -28,8 +28,13 @@ function PokemonList(){
     },[]);
     return (
         <div className="pokemonList_wrapper">
-        <div> pokemonList</div>
-        {DataDownload?'Loading....':PokemontList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id}/>)}
+        <div className="pokemom_wrapper">
+         {DataDownload?'Loading....':PokemontList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id}/>)}
+        </div>
+        <div className="button_wrapper">
+         <button>prev</button>
+         <button>next</button>
+        </div>
         </div>
     );
 }

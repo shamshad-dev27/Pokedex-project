@@ -1,4 +1,18 @@
 .pokemonList_wrapper{
     margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
+}
+.pokemom_wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button_wrapper>button{
+    padding: 10px 30px;
+    margin: 20px 20px;
 }
