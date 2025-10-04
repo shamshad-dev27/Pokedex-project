@@ -1,0 +1,8 @@
+#pokedex_search_box{
+    padding: 1rem;
+    width: 500px;
+    margin-top: 2rem;
+}
+.search_wrapper{
+    margin: 0 auto;
+}
