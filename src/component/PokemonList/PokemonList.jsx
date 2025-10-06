@@ -35,7 +35,7 @@ function PokemonList(){
     return (
         <div className="pokemonList_wrapper">
         <div className="pokemom_wrapper">
-         {DataDownload?'Loading....':PokemontList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id}/>)}
+         {DataDownload?'Loading....':PokemontList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)}
         </div>
         <div className="button_wrapper">
          <button disabled={prevurl==null} onClick={()=>setpokedexurl(prevurl)}>prev</button>

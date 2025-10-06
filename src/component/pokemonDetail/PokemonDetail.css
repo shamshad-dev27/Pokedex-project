@@ -1,0 +1,31 @@
+.Pokemon_detail_wrapper{
+    display: grid;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 30px;
+}
+.pokemon_name{
+    font-size: xx-large;
+    margin-top: 10px;
+    color: black;
+}
+.pokemon_name > span{
+    letter-spacing: 0.5rem;
+}
+.pokemon_detail_type{
+    display: flex;
+    margin-top: 2rem;
+    gap: 3rem;
+    font-size: larger;
+}
+.pokemon_detail_type div{
+    border: 2px solid blanchedalmond;
+    border-radius: 10px;
+    padding: 10px;
+    background-color:blanchedalmond;
+}
+.pokemon_Detail_image{
+    max-height: 200px;
+    margin: 0 auto;
+}
