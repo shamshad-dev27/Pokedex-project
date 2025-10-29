@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import './PokemonDetail.css';
 import usePokemonList from "../../hooks/usePokemonList";
 import usePokemonDetail from "../../hooks/usePokemonDetail";
-function PokemonDetail(){
+function PokemonDetail({pokemonName}){
 const {id}=useParams();
-const [pokemon]=usePokemonDetail(id); 
+const [pokemon]=usePokemonDetail(id,pokemonName); 
 return(
     <div className="Pokemon_detail_wrapper">
         <img  className="pokemon_Detail_image" src={pokemon.image} alt="#" />
@@ -22,7 +22,7 @@ return(
             <div>
                 more {pokemon.types} type pokemon
                 <ul>
-                    {pokemon.similarPokemon.map((p)=><li key={p.pokemon.id}>{p.pokemon.name}</li>)}
+                    {pokemon.similarPokemon.map((p)=><li key={p.pokemon.url}>{p.pokemon.name}</li>)}
                 </ul>
             </div>
         }
