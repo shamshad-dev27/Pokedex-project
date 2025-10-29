@@ -8,9 +8,19 @@ function usePokemonList(){
          pokedexurl:"https://pokeapi.co/api/v2/pokemon/",
          nexturl:'',
          preurl:'',
+         type:''
      });
       async function pokemonDownload(){
-      setpokemonlistState((state)=>({...state , isLoading: true}))
+      
+      if(pokemonlistState.type){
+       const response= await axios.get(`https://pokeapi.co/api/v2/type/${pokemonlistState.type}`)
+         setpokemonlistState((state)=>({
+          ...state,
+          PokemonList:response.data.pokemon.slice(0,5)
+         }))
+         
+      }else{
+         setpokemonlistState((state)=>({...state , isLoading: true}))
      const response= await axios.get(pokemonlistState.pokedexurl)
      const pokemonResult=response.data.results;
    
@@ -19,7 +29,6 @@ function usePokemonList(){
       nexturl:response.data.next,
       preurl:response.data.previous,
    }))
-
      const pro =pokemonResult.map((pokedata)=>axios.get(pokedata.url));
      const pokemonData=await axios.all(pro);
      const data= pokemonData.map((poke)=>{
@@ -37,6 +46,7 @@ function usePokemonList(){
         PokemonList: data,
         isLoading:false,
      }));
+   }
    }
 
 

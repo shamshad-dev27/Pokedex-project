@@ -3,7 +3,7 @@ import "./PokemonList.css"
 import Pokemon from "../Pokemon/Pokemon";
 import usePokemonList from "../../hooks/usePokemonList";
 function PokemonList(){
-  const [pokemonlistState,setpokemonlistState]=usePokemonList();
+  const [pokemonlistState,setpokemonlistState]=usePokemonList(false);
 
 
     return (
