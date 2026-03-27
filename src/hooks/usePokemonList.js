@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState ,useEffect} from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function usePokemonList(){
   const[pokemonlistState, setpokemonlistState]=useState({
@@ -10,16 +10,15 @@ function usePokemonList(){
          preurl:'',
          type:''
      });
-      async function pokemonDownload(){
-      
-      if(pokemonlistState.type){
+
+  const pokemonDownload = useCallback(async () => {
+    if(pokemonlistState.type){
        const response= await axios.get(`https://pokeapi.co/api/v2/type/${pokemonlistState.type}`)
          setpokemonlistState((state)=>({
           ...state,
           PokemonList:response.data.pokemon.slice(0,5)
          }))
-         
-      }else{
+    }else{
          setpokemonlistState((state)=>({...state , isLoading: true}))
      const response= await axios.get(pokemonlistState.pokedexurl)
      const pokemonResult=response.data.results;
@@ -47,12 +46,12 @@ function usePokemonList(){
         isLoading:false,
      }));
    }
-   }
+   }, [pokemonlistState.pokedexurl, pokemonlistState.type]);
 
 
    useEffect(()=>{
-  pokemonDownload();
-},[pokemonlistState.pokedexurl]);
+     pokemonDownload();
+   }, [pokemonDownload]);
 
        return [pokemonlistState ,setpokemonlistState];
 }
