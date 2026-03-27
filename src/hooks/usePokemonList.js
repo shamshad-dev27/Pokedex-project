@@ -50,9 +50,9 @@ function usePokemonList(){
    }
 
 
-    useEffect(()=>{
-          pokemonDownload();
-       },[pokemonlistState.pokedexurl]);
+   useEffect(()=>{
+  pokemonDownload();
+},[pokemonlistState.pokedexurl]);
 
        return [pokemonlistState ,setpokemonlistState];
 }

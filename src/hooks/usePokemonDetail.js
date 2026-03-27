@@ -38,7 +38,7 @@ async function PokemonDownload(){
     console.log("something want wrong")
    }
 }
-const[pokemonlistState ,setpokemonlistState]=useState({})
+
 
 useEffect(()=>{
     PokemonDownload();
